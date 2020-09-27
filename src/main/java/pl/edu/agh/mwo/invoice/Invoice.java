@@ -9,7 +9,6 @@ import pl.edu.agh.mwo.invoice.product.Product;
 public class Invoice {
 	private Collection<Product> products = new ArrayList<>();
 	
-	private  BigDecimal subtotal = BigDecimal.ZERO ;
 	private  BigDecimal tax = BigDecimal.ZERO ;
 	private  BigDecimal total = BigDecimal.ZERO ;
 
@@ -19,21 +18,26 @@ public class Invoice {
 
 	public void addProduct(Product product, Integer quantity) {
 		
-		if(quantity == null || quantity < 0) throw new IllegalArgumentException();
+		if(quantity == null || quantity <= 0) throw new IllegalArgumentException();
 		for(int i = 0; i < quantity; i++)
 		{
 			this.addProduct(product);
 		}
+		
 	}
 
 	public BigDecimal getSubtotal() {
 		
+		BigDecimal subtotal = BigDecimal.ZERO ;
+		
+		if(products != null && products.size() > 0) {
 		for(Product product : products)
 		{
-			this.subtotal = subtotal.add(product.getPrice());
+			subtotal = subtotal.add(product.getPrice());
+		}
 		}
 		
-		return this.subtotal;
+		return subtotal;
 	}
 
 	public BigDecimal getTax() {
