@@ -14,7 +14,7 @@ public class Invoice {
 	private final BigDecimal total = BigDecimal.ZERO ;
 
 	public void addProduct(Product product) {
-		// TODO: implement
+		products.add(product);
 	}
 
 	public void addProduct(Product product, Integer quantity) {
