@@ -8,8 +8,6 @@ import pl.edu.agh.mwo.invoice.product.Product;
 
 public class Invoice {
 	private Collection<Product> products = new ArrayList<>();
-	
-	private  BigDecimal total = BigDecimal.ZERO ;
 
 	public void addProduct(Product product) {
 		if(product != null) products.add(product);
@@ -52,6 +50,7 @@ public class Invoice {
 	}
 
 	public BigDecimal getTotal() {
-		return this.total;
+		
+		return getSubtotal().add(getTax());
 	}
 }
