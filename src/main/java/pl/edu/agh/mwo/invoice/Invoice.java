@@ -9,7 +9,6 @@ import pl.edu.agh.mwo.invoice.product.Product;
 public class Invoice {
 	private Collection<Product> products = new ArrayList<>();
 	
-	private  BigDecimal tax = BigDecimal.ZERO ;
 	private  BigDecimal total = BigDecimal.ZERO ;
 
 	public void addProduct(Product product) {
@@ -42,12 +41,14 @@ public class Invoice {
 
 	public BigDecimal getTax() {
 		
+		BigDecimal tax = BigDecimal.ZERO ;
+		
 		for(Product product : products)
 		{
-			this.tax = tax.add(product.getPrice().multiply(product.getTaxPercent()));
+			tax = tax.add(product.getPrice().multiply(product.getTaxPercent()));
 		}
 		
-		return this.tax;
+		return tax;
 	}
 
 	public BigDecimal getTotal() {
