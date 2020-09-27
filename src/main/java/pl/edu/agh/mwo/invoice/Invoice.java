@@ -10,6 +10,8 @@ public class Invoice {
 	private Collection<Product> products = new ArrayList<>();
 	
 	private final BigDecimal subtotal = BigDecimal.ZERO ;
+	
+	private final BigDecimal tax = BigDecimal.ZERO ;
 
 	public void addProduct(Product product) {
 		// TODO: implement
@@ -20,12 +22,11 @@ public class Invoice {
 	}
 
 	public BigDecimal getSubtotal() {
-		
 		return this.subtotal;
 	}
 
 	public BigDecimal getTax() {
-		return null;
+		return this.tax;
 	}
 
 	public BigDecimal getTotal() {
