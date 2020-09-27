@@ -1,12 +1,15 @@
 package pl.edu.agh.mwo.invoice;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import pl.edu.agh.mwo.invoice.product.Product;
 
 public class Invoice {
-	private Collection<Product> products;
+	private Collection<Product> products = new ArrayList<>();
+	
+	private final BigDecimal subtotal = BigDecimal.ZERO ;
 
 	public void addProduct(Product product) {
 		// TODO: implement
@@ -17,7 +20,8 @@ public class Invoice {
 	}
 
 	public BigDecimal getSubtotal() {
-		return null;
+		
+		return this.subtotal;
 	}
 
 	public BigDecimal getTax() {
