@@ -14,11 +14,16 @@ public class Invoice {
 	private final BigDecimal total = BigDecimal.ZERO ;
 
 	public void addProduct(Product product) {
-		products.add(product);
+		if(product != null) products.add(product);
 	}
 
 	public void addProduct(Product product, Integer quantity) {
-		// TODO: implement
+		
+		if(quantity == null || quantity < 0) throw new IllegalArgumentException();
+		for(int i = 0; i < quantity; i++)
+		{
+			this.addProduct(product);
+		}
 	}
 
 	public BigDecimal getSubtotal() {
