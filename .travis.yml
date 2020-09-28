@@ -2,9 +2,8 @@ language: java
 script:
   - mvn checkstyle:check
   - mvn test
+  
 after_success:
+  - export CODECOV_TOKEN="e7d3723a-b217-432b-93be-8f5b7de4f404"
   - bash <(curl -s https://codecov.io/bash)
   
-  env:
-  global:
-    - CODECOV_TOKEN="e7d3723a-b217-432b-93be-8f5b7de4f404"
