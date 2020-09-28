@@ -3,7 +3,6 @@ package pl.edu.agh.mwo.invoice;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
-
 import pl.edu.agh.mwo.invoice.product.Product;
 
 public class Invoice {
@@ -12,7 +11,6 @@ public class Invoice {
     public void addProduct(Product product) {
         addProduct(product, 1);
     }
-
     public void addProduct(Product product, Integer quantity) {
         if (product == null || quantity <= 0) {
             throw new IllegalArgumentException();
