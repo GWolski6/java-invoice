@@ -109,4 +109,22 @@ public class ProductTest {
         
         Assert.assertThat(priceWithTax, Matchers.comparesEqualTo(product.getPriceWithTax()));
     }
+    
+    @Test
+    public void testTheSameNameDifferentProductTax()
+    {
+        Product product1 = new OtherProduct("Produkt", new BigDecimal("10"));
+        Product product2 = new DairyProduct("Produkt", new BigDecimal("10"));
+
+        Assert.assertFalse(product1.equals(product2));
+    }
+
+    @Test
+    public void testTheSameNameDifferentProductExcise()
+    {
+        Product product1 = new TaxFreeProduct("Produkt", new BigDecimal("10"));
+        Product product2 = new BottleOfWine("Produkt", new BigDecimal("10"));
+
+        Assert.assertFalse(product1.equals(product2));
+    }
 }
