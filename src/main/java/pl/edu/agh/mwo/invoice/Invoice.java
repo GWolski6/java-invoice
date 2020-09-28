@@ -64,7 +64,10 @@ public class Invoice {
         String invoiceLook = "Invoice number: " + this.number + "\n";
         for (Map.Entry<Product, Integer> entry : products.entrySet()) {
             invoiceLook += "Products: " + entry.getKey().getName()
-                + ", Quantity: " + entry.getValue() + ", Price: " + entry.getKey().getPrice() + "\n";
+                + ", Quantity: " 
+                + entry.getValue() 
+                + ", Price: " 
+                + entry.getKey().getPrice() + "\n";
         }
         invoiceLook += "Number of postitions: " + products.size();
         return invoiceLook;
