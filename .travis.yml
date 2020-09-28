@@ -4,3 +4,7 @@ script:
   - mvn test
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  
+  env:
+  global:
+    - CODECOV_TOKEN="e7d3723a-b217-432b-93be-8f5b7de4f404"
