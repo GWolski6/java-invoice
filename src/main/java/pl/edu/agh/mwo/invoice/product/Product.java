@@ -11,11 +11,11 @@ public abstract class Product {
 
     protected Product(String name, BigDecimal price, BigDecimal tax) {
         if (name == null
-        	|| name.equals("")
-        	|| price == null
-        	|| tax == null
-        	|| tax.compareTo(new BigDecimal(0)) < 0
-        	|| price.compareTo(new BigDecimal(0)) < 0) {
+        || name.equals("")
+        || price == null
+        || tax == null
+        || tax.compareTo(new BigDecimal(0)) < 0
+        || price.compareTo(new BigDecimal(0)) < 0) {
             throw new IllegalArgumentException();
         }
         this.name = name;
