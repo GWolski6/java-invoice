@@ -92,4 +92,12 @@ public class ProductTest {
         Assert.assertThat(new BigDecimal("68"), Matchers.comparesEqualTo(product.getPrice()));
     }
     
+    @Test
+    public void testPriceForFuel()
+    {
+        final BigDecimal priceWithTax = new BigDecimal("80").add(new BigDecimal("80").multiply(BigDecimal.ZERO)).add(new BigDecimal("5.56"));
+        Product product = new FuelCanister("Paliwo", new BigDecimal("80"));
+        
+        Assert.assertThat(priceWithTax, Matchers.comparesEqualTo(product.getPriceWithTax()));
+    }
 }
