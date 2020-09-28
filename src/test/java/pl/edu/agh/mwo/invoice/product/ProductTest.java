@@ -100,4 +100,13 @@ public class ProductTest {
         
         Assert.assertThat(priceWithTax, Matchers.comparesEqualTo(product.getPriceWithTax()));
     }
+    
+    @Test
+    public void testPriceForWine()
+    {
+        final BigDecimal priceWithTax = new BigDecimal("5").add(new BigDecimal("5").multiply(new BigDecimal("0.23"))).add(new BigDecimal("5.56"));
+        Product product = new BottleOfWine("Amarena", new BigDecimal("5"));
+        
+        Assert.assertThat(priceWithTax, Matchers.comparesEqualTo(product.getPriceWithTax()));
+    }
 }
