@@ -129,4 +129,6 @@ public class InvoiceTest {
     public void testInvoicenumberIsConst() {
         Assert.assertEquals(invoice.getNumber(), invoice.getNumber());
     }
+    
+    
 }
