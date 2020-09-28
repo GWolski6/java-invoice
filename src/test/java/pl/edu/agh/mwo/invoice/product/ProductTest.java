@@ -71,4 +71,25 @@ public class ProductTest {
         Assert.assertThat(BigDecimal.ZERO, Matchers.comparesEqualTo(product.getExcise()));
         Assert.assertThat(BigDecimal.ZERO, Matchers.comparesEqualTo(product.getTaxPercent()));
     }
+    
+    @Test
+    public void testAll$$$ForFuel()
+    {
+        Product product = new FuelCanister("Ropa", new BigDecimal("66"));
+        
+        Assert.assertThat(new BigDecimal("5.56"), Matchers.comparesEqualTo(product.getExcise()));
+        Assert.assertThat(BigDecimal.ZERO, Matchers.comparesEqualTo(product.getTaxPercent()));
+        Assert.assertThat(new BigDecimal("100"), Matchers.comparesEqualTo(product.getPrice()));
+    }
+    
+    @Test
+    public void testAll$$$ForWine()
+    {
+        Product product = new BottleOfWine("Riesling", new BigDecimal("68"));
+        
+        Assert.assertThat(new BigDecimal("5.56"), Matchers.comparesEqualTo(product.getExcise()));
+        Assert.assertThat(new BigDecimal("0.23"), Matchers.comparesEqualTo(product.getTaxPercent()));
+        Assert.assertThat(new BigDecimal("68"), Matchers.comparesEqualTo(product.getPrice()));
+    }
+    
 }
