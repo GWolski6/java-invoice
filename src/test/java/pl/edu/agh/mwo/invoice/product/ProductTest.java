@@ -54,4 +54,21 @@ public class ProductTest {
     public void testProductWithNegativePrice() {
         new TaxFreeProduct("Mandarynki", new BigDecimal("-1.00"));
     }
+    
+    @Test
+    public void testExciseWithOtherProduct()
+    {
+        Product product = new OtherProduct("Chorizo", new BigDecimal("6"));
+        
+        Assert.assertThat(BigDecimal.ZERO, Matchers.comparesEqualTo(product.getExcise()));
+    }
+
+    @Test
+    public void testExciseWithTaxFreeProduct()
+    {    
+        Product product = new TaxFreeProduct("Darmowe telewizory", new BigDecimal("1"));
+        
+        Assert.assertThat(BigDecimal.ZERO, Matchers.comparesEqualTo(product.getExcise()));
+        Assert.assertThat(BigDecimal.ZERO, Matchers.comparesEqualTo(product.getTaxPercent()));
+    }
 }
