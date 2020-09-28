@@ -130,5 +130,33 @@ public class InvoiceTest {
         Assert.assertEquals(invoice.getNumber(), invoice.getNumber());
     }
     
+    @Test
+    public void testProductQuantityIncreaseWhenInvoicContainThisProduct()
+    {
+        Product product = new TaxFreeProduct("Chedar", new BigDecimal("10")); 
+        
+        Integer additions = 8;
+        for (int i = 0; i < additions; i++)
+        {
+            invoice.addProduct(product);
+        }
+        
+        Assert.assertTrue(invoice.getProducts().containsKey(product));
+        Assert.assertEquals(additions, invoice.getProducts().get(product));      
+    }
     
+    @Test
+    public void testProductQuantityIncreaseWhenInvoicContainThisProductBiggerThan1()
+    {
+    	Product product = new TaxFreeProduct("Chedar", new BigDecimal("10"));  
+
+        Integer quantity1 = 8;
+        invoice.addProduct(product, quantity1);
+        
+        Integer quantity2 = 12;
+        invoice.addProduct(product, quantity2);
+
+        Assert.assertTrue(invoice.getProducts().containsKey(product));
+        Assert.assertEquals(Integer.valueOf(quantity1 + quantity2), invoice.getProducts().get(product));      
+    }
 }
