@@ -79,7 +79,7 @@ public class ProductTest {
         
         Assert.assertThat(new BigDecimal("5.56"), Matchers.comparesEqualTo(product.getExcise()));
         Assert.assertThat(BigDecimal.ZERO, Matchers.comparesEqualTo(product.getTaxPercent()));
-        Assert.assertThat(new BigDecimal("100"), Matchers.comparesEqualTo(product.getPrice()));
+        Assert.assertThat(new BigDecimal("66"), Matchers.comparesEqualTo(product.getPrice()));
     }
     
     @Test
