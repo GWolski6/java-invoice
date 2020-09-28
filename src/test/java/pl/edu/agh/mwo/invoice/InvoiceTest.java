@@ -110,4 +110,11 @@ public class InvoiceTest {
         int number = invoice.getNumber();
         Assert.assertThat(number, Matchers.greaterThan(0));
     }
+    
+    @Test
+    public void testInvoicesHasDifferentNumber() {
+        int number1 = new Invoice().getNumber();
+        int number2 = new Invoice().getNumber();
+        Assert.assertNotEquals(number1, number2);
+    }
 }
