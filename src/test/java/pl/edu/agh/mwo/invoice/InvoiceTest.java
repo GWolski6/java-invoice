@@ -194,4 +194,39 @@ public class InvoiceTest {
         Assert.assertEquals(quantity1, invoice.getProducts().get(product1));    
         Assert.assertEquals(quantity2, invoice.getProducts().get(product2));   
     }
+    
+    @Test
+    public void testProductNameAndPriceAreTheSameButCategoryIsDifferent()
+    {
+        Product product1 = new DairyProduct("AmongUs", new BigDecimal("10"));
+        Product product2 = new OtherProduct("AmongUs", new BigDecimal("10"));
+
+        invoice.addProduct(product1);
+        invoice.addProduct(product2);
+
+        Assert.assertTrue(invoice.getProducts().containsKey(product1));
+        Assert.assertTrue(invoice.getProducts().containsKey(product2));
+        Assert.assertEquals(2, invoice.getProducts().size());
+        Assert.assertEquals(Integer.valueOf(1), invoice.getProducts().get(product1));      
+        Assert.assertEquals(Integer.valueOf(1), invoice.getProducts().get(product2)); 
+    }
+
+    @Test
+    public void testProductNameAndPriceAreTheSameButCategoryIsDifferentQuantityBiggerThan1()
+    {
+        Product product1 = new DairyProduct("AmongUs", new BigDecimal("10"));
+        Product product2 = new OtherProduct("AmongUs", new BigDecimal("10"));
+
+        Integer quantity1 = 2;
+        invoice.addProduct(product1, quantity1);
+        
+        Integer quantity2 = 8;
+        invoice.addProduct(product2, quantity2);
+
+        Assert.assertTrue(invoice.getProducts().containsKey(product1));
+        Assert.assertTrue(invoice.getProducts().containsKey(product2));
+        Assert.assertEquals(2, invoice.getProducts().size());
+        Assert.assertEquals(quantity1, invoice.getProducts().get(product1));
+        Assert.assertEquals(quantity2, invoice.getProducts().get(product2));
+    }
 }
