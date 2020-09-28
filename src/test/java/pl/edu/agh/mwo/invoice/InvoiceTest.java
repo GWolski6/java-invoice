@@ -124,4 +124,9 @@ public class InvoiceTest {
         int number2 = new Invoice().getNumber();
         Assert.assertThat(number1, Matchers.lessThan(number2));
     }
+    
+    @Test
+    public void testInvoicenumberIsConst() {
+        Assert.assertEquals(invoice.getNumber(), invoice.getNumber());
+    }
 }
