@@ -1,4 +1,4 @@
-package pl.edu.agh.mwo.invoice;
+package pl.edu.agh.mwo.invoice; //kk
 
 import java.math.BigDecimal;
 
@@ -103,5 +103,11 @@ public class InvoiceTest {
     @Test(expected = IllegalArgumentException.class)
     public void testInvoiceWithNegativeQuantity() {
         invoice.addProduct(new DairyProduct("Zsiadle mleko", new BigDecimal("5.55")), -1);
+    }
+    
+    @Test
+    public void testInvoiceHasNumberGreaterThan0() {
+        int number = invoice.getNumber();
+        Assert.assertThat(number, Matchers.greaterThan(0));
     }
 }

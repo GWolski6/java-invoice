@@ -1,4 +1,4 @@
-package pl.edu.agh.mwo.invoice;
+package pl.edu.agh.mwo.invoice; // WOW lets do this
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -13,6 +13,7 @@ public class Invoice {
     public void addProduct(Product product) {
         addProduct(product, 1);
     }
+    
     public void addProduct(Product product, Integer quantity) {
         if (product == null || quantity <= 0) {
             throw new IllegalArgumentException();
@@ -44,5 +45,9 @@ public class Invoice {
     
     public int getNumber() {
         return number;
+    }
+    
+    public Map<Product, Integer> getProducts() {
+        return products;
     }
 }
